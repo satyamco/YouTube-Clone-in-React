@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+ font-family: 'Roboto', Arial, Helvetica, sans-serif;
+ background-color: #0f0f0f;
+}
+
+.search-border{
+  border: 1px solid #282828;
+  border-radius: 50px;
+  color: white;
+}
+.scrollbar::-webkit-scrollbar{
+  display: none;
+}
+.play-video{
+  max-width: 100%;
+  height: auto;
+  background: #0f0f0f;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  margin-block: 24px;
+  margin-inline: 50px;
+}
+
+@media (max-width: 1280px) {
+  .play-video{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+.load-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #fd602c;
+}
+.bar {
+  content: "";
+  display: inline;
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: 50%;
+  text-align: center;
+}
+.bar:nth-child(1) {
+  background-color: #da3333;
+  animation: loading 3s linear infinite;
+}
+.bar:nth-child(2) {
+  background-color: #e73b3b;
+  animation: loading 3s linear 1s infinite;
+}
+.bar:nth-child(3) {
+  background-color: #8d0026;
+  animation: loading 3s linear 2s infinite;
+}
+@keyframes loading {
+  from {
+      left: 50%;
+      width: 0;
+      z-index: 100;
+  }
+  33.3333% {
+      left: 0;
+      width: 100%;
+      z-index: 10;
+  }
+  to {
+      left: 0;
+      width: 100%;
+  }
+}
